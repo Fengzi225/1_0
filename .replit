@@ -1,3 +1,4 @@
+run = "javac -d out src/main/java/Main.java && java -cp out Main"
 modules = ["nodejs-24"]
 
 [deployment]
@@ -9,7 +10,7 @@ args = ["pnpm", "store", "prune"]
 env = { "CI" = "true" }
 
 [workflows]
-runButton = "Project"
+runButton = "Run Replit App"
 
 [agent]
 stack = "PNPM_WORKSPACE"
@@ -18,3 +19,7 @@ expertMode = true
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 20000
+
+[nix]
+channel = "stable-25_05"
+packages = ["jdk21"]
